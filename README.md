@@ -1,2 +1,3 @@
-# CandelaObscuraTaleSpire
-Provides a symbiote for playing Candela Obscura on TaleSpire
+# Candela Obscura Helper
+
+A sparkling new symbiote!

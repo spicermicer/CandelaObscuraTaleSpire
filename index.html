@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Candela Obscura</title>
+	<link rel="stylesheet" href="candela.css">	
+	<script src="roll.js"></script>
+	<script src="save.js"></script>
+</head>
+
+<body>
+	<table>
+		<td><img src="imgs/Logo.png" width="80"/></td>
+    	<td style="margin-top: 0; margin-left: 20px;">
+			<h1>Candela Obscura</h1>
+			<small>v1.3</small>
+		</td>		
+	</table>
+
+	<div class="tab">
+		<button class="tablinks" onclick="openTab(event, 'details')">Details</button>
+		<button class="tablinks" onclick="openTab(event, 'actions')">Actions</button>
+		<button class="tablinks" onclick="openTab(event, 'class')">Class</button>
+		<button class="tablinks" onclick="openTab(event, 'damage')">Damage</button>
+		<button class="tablinks" onclick="openTab(event, 'misc')">Misc</button>
+	</div>
+
+	<!-- Details -->
+	<div id="details" class="tabcontent">
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><input id="name" type="text" ></input></td>
+			</tr>
+			<tr>
+				<td>Pronouns:</td>
+				<td><input id="pronouns" type="text" ></input></td>
+			</tr>
+			<tr>
+				<td>Circle:</td>
+				<td><input id="circle" type="text" ></input></td>
+			</tr>
+			<tr>
+				<td>Style:</td>
+				<td><input id="style" type="text" ></input></td>
+			</tr>
+			<tr>
+				<td>Catalyst:</td>
+				<td><input id="catalyst" type="text" ></input></td>
+			</tr>
+			<tr>
+				<td>Question:</td>
+				<td><input id="question" type="text" ></input></td>
+			</tr>
+		</table>
+	</div>
+
+	<!-- Actions Tab -->
+	<div id="actions" class="tabcontent">
+		<!-- Nerve -->	
+		<fieldset>
+			<legend>				
+				<table>
+					<td><h1>Nerve</h1></td>
+					<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
+					<td>
+						<table>
+							<tr>
+								<td><div style="text-align: right;">Drive&emsp;</div></td>
+								<td><input type="checkbox" id="nerve-1" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="nerve-2" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="nerve-3" class="checkbox-drive" /></td>
+								<td>&emsp;</td>
+								<td><input type="checkbox" id="nerve-4" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="nerve-5" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="nerve-6" class="checkbox-drive" /></td>
+								<td>&emsp;</td>
+								<td><input type="checkbox" id="nerve-7" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="nerve-8" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="nerve-9" class="checkbox-drive" /></td>
+							</tr>
+							<tr id="nerve-max">
+								<td><small><div style="text-align: right;">Max&emsp;</div></small></td>
+								<td><input type="checkbox" id="nerve-max-1" class="checkbox-drive-max" /></td>
+								<td><input type="checkbox" id="nerve-max-2" class="checkbox-drive-max" /></td>
+								<td><input type="checkbox" id="nerve-max-3" class="checkbox-drive-max" /></td>
+								<td>&emsp;</td>
+								<td><input type="checkbox" id="nerve-max-4" class="checkbox-drive-max" /></td>
+								<td><input type="checkbox" id="nerve-max-5" class="checkbox-drive-max" /></td>
+								<td><input type="checkbox" id="nerve-max-6" class="checkbox-drive-max" /></td>
+								<td>&emsp;</td>
+								<td><input type="checkbox" id="nerve-max-7" class="checkbox-drive-max" /></td>
+								<td><input type="checkbox" id="nerve-max-8" class="checkbox-drive-max" /></td>
+								<td><input type="checkbox" id="nerve-max-9" class="checkbox-drive-max" /></td>
+							</tr>
+							<tr>
+								<td><div style="text-align: right;">Resistance&emsp;</div></td>
+								<th colspan="3"><input type="checkbox" id="nerve-resistance-1" class="checkbox-round" /></th>
+								<td></td>
+								<th colspan="3"><input type="checkbox" id="nerve-resistance-2" class="checkbox-round" /></th>
+								<td></td>
+								<th colspan="3"><input type="checkbox" id="nerve-resistance-3" class="checkbox-round" /></th>
+							</tr>
+						</table>
+					</td>
+				</table>
+			</legend>
+
+			<span id="nerve">
+				<!-- Move -->
+				<input type="checkbox" id="move" name="move" value="move"> <label for="move"> <h3>Move</h3>&emsp; run, dodge, navigate </label><br>			
+				<input type="checkbox" class="checkbox-round" id="move-1" />
+				<input type="checkbox" class="checkbox-round" id="move-2" />
+				<input type="checkbox" class="checkbox-round" id="move-3" />			
+				+ <input type="number" id="move-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('move')">Roll</button>
+
+				<br><br>
+
+				<!-- Strike -->
+				<input type="checkbox" id="strike" name="strike" value="strike"> <label for="strike"> <h3>Strike</h3>&emsp; punch, break, knock down </label><br>
+				<input type="checkbox" class="checkbox-round" id="strike-1" />
+				<input type="checkbox" class="checkbox-round" id="strike-2" />
+				<input type="checkbox" class="checkbox-round" id="strike-3" />
+				+ <input type="number" id="strike-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('strike')">Roll</button>
+
+				<br><br>
+
+				<!-- Control -->
+				<input type="checkbox" id="control" name="control" value="control"> <label for="control"> <h3>Control</h3>&emsp; drive, shoot, finesse </label><br>
+				<input type="checkbox" class="checkbox-round" id="control-1" />
+				<input type="checkbox" class="checkbox-round" id="control-2" />
+				<input type="checkbox" class="checkbox-round" id="control-3" />
+				+ <input type="number" id="control-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('control')">Roll</button>
+			</span>
+
+		</fieldset>
+
+		<!-- Cunning -->
+		<fieldset>
+			<table>
+				<td><h1>Cunning</h1></td>
+				<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
+				<td>
+					<table>
+						<tr>
+							<td><div style="text-align: right;">Drive&emsp;</div></td>
+							<td><input type="checkbox" id="cunning-1" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="cunning-2" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="cunning-3" class="checkbox-drive" /></td>
+							<td>&emsp;</td>
+							<td><input type="checkbox" id="cunning-4" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="cunning-5" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="cunning-6" class="checkbox-drive" /></td>
+							<td>&emsp;</td>
+							<td><input type="checkbox" id="cunning-7" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="cunning-8" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="cunning-9" class="checkbox-drive" /></td>
+						</tr>
+						<tr id="cunning-max">
+							<td><small><div style="text-align: right;">Max&emsp;</div></small></td>
+							<td><input type="checkbox" id="cunning-max-1" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="cunning-max-2" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="cunning-max-3" class="checkbox-drive-max" /></td>
+							<td>&emsp;</td>
+							<td><input type="checkbox" id="cunning-max-4" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="cunning-max-5" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="cunning-max-6" class="checkbox-drive-max" /></td>
+							<td>&emsp;</td>
+							<td><input type="checkbox" id="cunning-max-7" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="cunning-max-8" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="cunning-max-9" class="checkbox-drive-max" /></td>
+						</tr>
+						<tr>
+							<td><div style="text-align: right;">Resistance&emsp;</div></td>
+							<th colspan="3"><input type="checkbox" id="cunning-resistance-1" class="checkbox-round" /></th>
+							<td></td>
+							<th colspan="3"><input type="checkbox" id="cunning-resistance-2" class="checkbox-round" /></th>
+							<td></td>
+							<th colspan="3"><input type="checkbox" id="cunning-resistance-3" class="checkbox-round" /></th>
+						</tr>
+					</table>
+				</td>
+			</table>
+			
+			<span id="cunning">
+			<!-- Sway -->
+				<input type="checkbox" id="sway" name="sway" value="sway"> <label for="sway"> <h3>Sway</h3>&emsp; convince, command, consort </label><br>
+				<input type="checkbox" class="checkbox-round" id="sway-1" />
+				<input type="checkbox" class="checkbox-round" id="sway-2" />
+				<input type="checkbox" class="checkbox-round" id="sway-3" />
+				+ <input type="number" id="sway-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('sway')">Roll</button>
+
+				<br><br>
+
+				<!-- Read -->
+				<input type="checkbox" id="read" name="read" value="read"> <label for="read"> <h3>Read</h3>&emsp; interpret body language, spot lies, gather motives</label><br>		
+				<input type="checkbox" class="checkbox-round" id="read-1" />
+				<input type="checkbox" class="checkbox-round" id="read-2" />
+				<input type="checkbox" class="checkbox-round" id="read-3" />
+				+ <input type="number" id="read-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('read')">Roll</button>
+
+				<br><br>
+
+				<!-- Hide -->	
+				<input type="checkbox" id="hide" name="hide" value="hide"> <label for="hide"> <h3>Hide</h3>&emsp; sneak, distract, sleight of hand </label><br>
+				<input type="checkbox" class="checkbox-round" id="hide-1" />
+				<input type="checkbox" class="checkbox-round" id="hide-2" />
+				<input type="checkbox" class="checkbox-round" id="hide-3" />
+				+ <input type="number" id="hide-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('hide')">Roll</button>
+			</span>
+		</fieldset>
+
+		<fieldset>
+			<table>
+				<td><h1>Intuition</h1></td>
+				<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
+				<td>
+					<table>
+						<tr>
+							<td><div style="text-align: right;">Drive&emsp;</div></td>
+							<td><input type="checkbox" id="intuition-1" class="checkbox-drive" /></td>								
+							<td><input type="checkbox" id="intuition-2" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="intuition-3" class="checkbox-drive" /></td>
+							<td>&emsp;</td>
+							<td><input type="checkbox" id="intuition-4" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="intuition-5" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="intuition-6" class="checkbox-drive" /></td>
+							<td>&emsp;</td>
+							<td><input type="checkbox" id="intuition-7" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="intuition-8" class="checkbox-drive" /></td>
+							<td><input type="checkbox" id="intuition-9" class="checkbox-drive" /></td>
+						</tr>
+						<tr id="intuition-max">
+							<td><small><div style="text-align: right;">Max&emsp;</div></small></td>
+							<td><input type="checkbox" id="intuition-max-1" class="checkbox-drive-max" /></td>								
+							<td><input type="checkbox" id="intuition-max-2" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="intuition-max-3" class="checkbox-drive-max" /></td>
+							<td>&emsp;</td>
+							<td><input type="checkbox" id="intuition-max-4" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="intuition-max-5" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="intuition-max-6" class="checkbox-drive-max" /></td>
+							<td>&emsp;</td>
+							<td><input type="checkbox" id="intuition-max-7" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="intuition-max-8" class="checkbox-drive-max" /></td>
+							<td><input type="checkbox" id="intuition-max-9" class="checkbox-drive-max" /></td>
+						</tr>
+						<tr>
+							<td><div style="text-align: right;">Resistance&emsp;</div></td>
+							<th colspan="3"><input type="checkbox" id="intuition-resistance-1" class="checkbox-round" /></th>
+							<td></td>
+							<th colspan="3"><input type="checkbox" id="intuition-resistance-2" class="checkbox-round" /></th>
+							<td></td>
+							<th colspan="3"><input type="checkbox" id="intuition-resistance-3" class="checkbox-round" /></th>
+						</tr>
+					</table>						
+				</td>
+			</table>
+			<span id="intuition">
+				<input type="checkbox" id="survey" name="survey" value="survey"> <label for="survey"> <h3>Survey</h3>&emsp; search, track, spot </label><br>
+				<input type="checkbox" class="checkbox-round" id="survey-1" />
+				<input type="checkbox" class="checkbox-round" id="survey-2" />
+				<input type="checkbox" class="checkbox-round" id="survey-3" />		
+				+ <input type="number" id="survey-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('survey')">Roll</button>
+
+				<br><br>
+
+				<input type="checkbox" id="focus" name="focus" value="focus"> <label for="focus"> <h3>Focus</h3>&emsp; inspect, analyze, remember</label><br>
+				<input type="checkbox" class="checkbox-round" id="focus-1" />
+				<input type="checkbox" class="checkbox-round" id="focus-2" />
+				<input type="checkbox" class="checkbox-round" id="focus-3" />
+				+ <input type="number" id="focus-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('focus')">Roll</button>
+
+				<br><br>
+
+				<input type="checkbox" id="sense" name="sense" value="sense"> <label for="sense"> <h3>Sense</h3>&emsp; attune, channel, reveal</label><br>
+				<input type="checkbox" class="checkbox-round" id="sense-1" />
+				<input type="checkbox" class="checkbox-round" id="sense-2" />
+				<input type="checkbox" class="checkbox-round" id="sense-3" />		
+				+ <input type="number" id="sense-drive" min="0" max="10" /> Drive &emsp;&emsp;
+				<button onclick="roll('sense')">Roll</button>
+			</span>
+		</fieldset>
+	</div>
+
+	<!-- Class tab -->	
+	<div id="class" class="tabcontent">
+		<fieldset>
+			<legend>
+				<table>
+					<td><h1> Role </h1></td>
+					<td>&emsp;</td>
+					<td><input id="role" type="text"></input></td>
+				</table>   
+			</legend>
+			
+			<br><br>
+
+			<input type="text" id="role-title-1">
+			<textarea id="role-1"></textarea>
+
+			<br><br>
+
+			<input type="text" id="role-title-2">
+			<textarea id="role-2"></textarea> 
+
+			<br><br>
+
+			<input type="text" id="role-title-3">
+			<textarea id="role-3"></textarea>
+		</fieldset>
+
+		<br><br>
+		
+		<fieldset>
+			<legend>
+				<table>
+					<td><h1> Specialty </h1></td>
+					<td>&emsp;</td>
+					<td><input id="specialty" type="text"></input> </td>
+
+				</table>				  
+			</legend>
+
+			<br><br>
+
+			<input type="text" id="specialty-title-1">
+			<textarea id="specialty-1" ></textarea>
+
+			<br><br>
+
+			<input type="text" id="specialty-title-2">
+			<textarea id="specialty-2" ></textarea></li>
+
+			<br><br>
+
+			<input type="text" id="specialty-title-3">
+			<textarea id="specialty-3" ></textarea></li>
+
+			<br><br>
+
+			<input type="text" id="specialty-title-4">
+			<textarea id="specialty-4" ></textarea></li>
+
+			<br><br>
+
+			<input type="text" id="specialty-title-5">
+			<textarea id="specialty-5" ></textarea></li>
+
+			<br><br>
+
+			<input type="text" id="specialty-title-6">
+			<textarea id="specialty-6" ></textarea></li>
+			
+		</fieldset>
+
+		<br><br>
+
+		<fieldset>
+			<legend> <h1> Illumination Keys </h1></legend>
+			<textarea id="illumination-keys" ></textarea>
+		</fieldset>
+	</div>
+
+	<!-- Damage -->
+	<div id="damage" class="tabcontent">
+
+		<fieldset>
+			<legend>
+				<table>
+					<td><h1>Marks</h1></td>
+					<td>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td>
+					<td>
+						<table>
+							<tr>								
+								<td><input type="checkbox" id="body-1" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="body-2" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="body-3" class="checkbox-drive" /></td>
+								<td>&emsp;</td>
+								<td><input type="checkbox" id="brain-1" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="brain-2" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="brain-3" class="checkbox-drive" /></td>
+								<td>&emsp;</td>
+								<td><input type="checkbox" id="bleed-1" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="bleed-2" class="checkbox-drive" /></td>
+								<td><input type="checkbox" id="bleed-3" class="checkbox-drive" /></td>
+							</tr>
+							<tr>								
+								<th colspan="3">Body</th>
+								<td></td>
+								<th colspan="3">Brain</th>
+								<td></td>
+								<th colspan="3">Bleed</th>
+							</tr>
+						</table>
+					</td>
+				</table>
+			</legend>
+
+			<h2>Scars</h2>
+			<p>
+				If you should ever take a fourth scar, work with the GM to play out
+				your final moments. This character is no longer playable. 
+			</p>
+
+			
+			<input type="checkbox" id="scar-1" />
+			<input id="scar-1-text" type="text" ></input><br>
+
+			<input type="checkbox" id="scar-2" />
+			<input id="scar-2-text" type="text" ></input><br>
+
+			<input type="checkbox" id="scar-3" />
+			<input id="scar-3-text" type="text" ></input><br>
+
+			<br> <h2>Relationships</h2>
+
+			<table>
+				<tr>
+					<td> <input id="relationship-1-1" type="text" ></input></td>
+					<td> <input id="relationship-1-2" type="text" ></input></td>
+				</tr>
+				<tr>
+					<td> <input id="relationship-2-1" type="text" ></input></td>
+					<td> <input id="relationship-2-2" type="text" ></input></td>
+				</tr>
+				<tr>
+					<td> <input id="relationship-3-1" type="text" ></input></td>
+					<td> <input id="relationship-3-2" type="text" ></input></td>
+				</tr>
+				<tr>
+					<td> <input id="relationship-4-1" type="text" ></input></td>
+					<td> <input id="relationship-4-2" type="text" ></input></td>
+				</tr>
+			</table>
+
+			<br> <h2>Gear</h2> <br>
+
+			<input type="checkbox" id="gear-1" />
+			<input id="gear-1-text" type="text" ></input><br>
+
+			<input type="checkbox" id="gear-2" />
+			<input id="gear-2-text" type="text" ></input><br>
+
+			<input type="checkbox" id="gear-3" />
+			<input id="gear-3-text" type="text" ></input><br>
+
+			<input type="checkbox" id="gear-4" />
+			<input id="gear-4-text" type="text" ></input><br>
+
+			<input type="checkbox" id="gear-5" />
+			<input id="gear-5-text" type="text" ></input><br>
+
+			<input type="checkbox" id="gear-6" />
+			<input id="gear-6-text" type="text" ></input><br>
+
+			<input type="checkbox" id="gear-7" />
+			<input id="gear-7-text" type="text" ></input><br>
+
+
+			<h2>Notes</h2>
+			<td> <textarea id="notes" ></textarea></td>
+
+		</fieldset>
+
+	</div>
+
+	<!-- Misc -->
+	<div id="misc" class="tabcontent">
+		<br>
+		<button id="enabled" onclick="setEnabled(true)">Unlock</button>
+		<button id="disable" onclick="setEnabled(false)">Lock</button>		
+        <button id="clear-storage" style="display: none;" onclick="clearSheet()">Character Sheet Empty</button>
+		<br>
+	</div>
+
+</body>
+</html>

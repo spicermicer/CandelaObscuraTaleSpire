@@ -1,0 +1,41 @@
+{
+  "manifestVersion": 1.2,
+  "name": "Candela Obscura Helper",
+  "summary": "A freshly generated symbiote",
+  "descriptionFilePath": "/README.md",
+  "version": "0.0.1",
+  "license": "MIT",
+  "about": {
+    "website": "https://www.example.com/Candela+Obscura+Helper",
+    "authors": ["Spicer"]
+  },
+  "kind": "webView",
+  "entryPoint": "/index.html",
+  "api": {
+    "version": "0.1",
+    "initTimeout": 10,
+    "subscriptions": {
+      "dice": {
+        "onRollResults": "handleRollResult"        
+      },
+      "symbiote": {
+        "onStateChangeEvent": "onStateChangeEvent"
+      }
+    },
+    "interop": {
+      "id": "84c55158-d146-4905-a21d-5aa3cca2b198"
+    }
+  },
+  "environment": {
+    "capabilities": [
+      "playAudio"
+    ],
+    "extras": [
+      "diceFinder",
+      "icons",
+      "fonts",
+      "colorStyles"
+    ],
+    "webViewBackgroundColor": "#000"
+  }
+}
